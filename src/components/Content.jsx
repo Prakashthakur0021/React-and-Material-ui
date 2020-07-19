@@ -10,10 +10,10 @@ const useStyles = makeStyles({
   },
 });
 const CoffeeGenerator = (dataObj) => {
-  const clicked = false;
+  const clicked = true;
   return (
     <Grid key={dataObj.serial} item sm={6} md={4} xs={12}>
-      <CoffeeCard {...dataObj} clicked />
+      <CoffeeCard {...dataObj} clicked={clicked} />
     </Grid>
   );
 };

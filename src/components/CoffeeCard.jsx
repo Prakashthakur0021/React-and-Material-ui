@@ -12,16 +12,22 @@ import Typography from "@material-ui/core/Typography";
 import ShareIcon from "@material-ui/icons/Share";
 
 const CoffeeCard = (props) => {
-  const useStyles = makeStyles({
+  const useStyles = makeStyles((theme) => ({
     media: {
       height: 0,
       paddingTop: "56.25%", // 16:9
     },
-    btnStyles: {
-      fontWeight: "bold",
+    btnStyles: (props) => {
+      return {
+        color: props.clicked ? "blue" : "red",
+        [theme.breakpoints.down("sm")]: {
+          color: "black",
+        },
+        fontWeight: props.clicked ? "bold" : "inherit",
+      };
     },
-  });
-  const classes = useStyles();
+  }));
+  const classes = useStyles(props);
   const { avatarSrc, title, price, description, imgSrc } = props;
   return (
     <Card>
