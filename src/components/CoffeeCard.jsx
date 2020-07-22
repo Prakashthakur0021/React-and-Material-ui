@@ -30,7 +30,7 @@ const CoffeeCard = (props) => {
   const classes = useStyles(props);
   const { avatarSrc, title, price, description, imgSrc } = props;
   return (
-    <Card>
+    <Card variant="outlined">
       <CardHeader
         avatar={
           <Avatar

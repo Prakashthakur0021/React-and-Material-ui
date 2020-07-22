@@ -19,7 +19,6 @@ const CoffeeGenerator = (dataObj) => {
 };
 const Content = () => {
   const classes = useStyles();
-
   return (
     <Grid container spacing={4} className={classes.root}>
       {data.map((dataObj) => CoffeeGenerator(dataObj))}

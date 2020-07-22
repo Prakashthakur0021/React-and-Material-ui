@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Typography } from "@material-ui/core";
 import { AppBar, Toolbar, IconButton } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
+import Switch from "@material-ui/core/Switch";
+import { UserContext } from "./../Context/UserContext";
 
 const useStyles = makeStyles({
   root: {},
@@ -13,6 +15,8 @@ const useStyles = makeStyles({
 
 const Header = () => {
   const classes = useStyles();
+  const { darkMode, setDarkMode } = useContext(UserContext);
+  const changeTheme = () => setDarkMode(!darkMode);
 
   return (
     <AppBar position="static">
@@ -23,6 +27,12 @@ const Header = () => {
         <IconButton edge="start" color="inherit" aria-label="menu">
           <AddShoppingCartIcon fontSize="large" />
         </IconButton>
+        <Switch
+          checked={darkMode}
+          onChange={changeTheme}
+          name="checkedA"
+          inputProps={{ "aria-label": "secondary checkbox" }}
+        />
       </Toolbar>
     </AppBar>
   );
